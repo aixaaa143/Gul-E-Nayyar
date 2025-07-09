@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gul-e-Nayyar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<script>
+function openProductPopup(id) {
+  document.getElementById(id).style.display = 'flex';
+}
+
+function closeProductPopup(id) {
+  document.getElementById(id).style.display = 'none';
+}
+</script>
+
+  <!-- Slideshow Banner -->
+  <div class="slideshow">
+  <img src="banner1.jpg" class="slide active" />
+  <img src="banner2.jpg" class="slide" />
+  <img src="banner3.jpg" class="slide" />
+</div>
+
+  <header>
+    <h1>Gul-e-Nayyar</h1>
+    <p>Grace in every stitch</p>
+  </header>
+
+  <!-- Filter Buttons -->
+  <div class="filters">
+    <button onclick="filterItems('all')">All</button>
+    <button onclick="filterItems('3piece')">3-Piece</button>
+    <button onclick="filterItems('2piece')">2-Piece</button>
+    <button onclick="filterItems('dupatta')">Dupattas</button>
+  </div>
+
+  <!-- Product Section -->
+  <section class="product-grid">
+<!-- Slot 1: Bahaar - 3 Piece -->
+<div class="product-card 3piece" onclick="openProductPopup('bahaar-3p')">
+  <img src="bahaar.png" alt="Bahaar 3 Piece" />
+  <h3>Bahaar</h3>
+  <p class="price">Rs. 11,000</p>
+  <p class="type">3-PIECE</p>
+</div>
+
+<!-- Slot 2: Bahaar - Dupatta Only -->
+<div class="product-card dupatta" onclick="openProductPopup('bahaar-dupatta')">
+  <img src="bahaar.png" alt="Bahaar Dupatta" />
+  <h3>Bahaar (Dupatta)</h3>
+  <p class="price">Rs. 4,500</p>
+  <p class="type">DUPATTA</p>
+</div>
+<!-- Slot 3: Mehr - 3 Piece -->
+<div class="product-card 3piece" onclick="openProductPopup('mehr-3p')">
+  <img src="mehr.png" alt="Mehr 3 Piece" />
+  <h3>Mehr</h3>
+  <p class="price">Rs. 8,000</p>
+  <p class="type">3-PIECE</p>
+</div>
+
+  
+    <!-- 30 Example Items -->
+    <script>
+      const products = [];
+      const categories = ['3piece', '2piece', 'dupatta'];
+      for (let i = 1; i <= 30; i++) {
+        const category = categories[i % 3];
+        products.push(`
+          <div class="product-card ${category}">
+            <img src="https://via.placeholder.com/300x400.png?text=Suit+${i}" alt="Product ${i}" />
+            <h3>Elegant Look ${i}</h3>
+            <p class="price">Rs. ${10000 + i * 50}</p>
+            <p class="type">${category.toUpperCase()}</p>
+          </div>
+        `);
+      }
+      document.write(products.join(''));
+    </script>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Gul-e-Nayyar. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function filterItems(category) {
+      const items = document.querySelectorAll('.product-card');
+      items.forEach(item => {
+        item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+      });
+    }
+
+    // Optional: Add slideshow effect (for future images)
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    setInterval(() => {
+      slides.forEach(s => s.classList.remove('active'));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }, 4000);
+  </script>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  setInterval(() => {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+  }, 4000);
+</script>
+<!-- POPUP: Bahaar - 3 Piece -->
+<div class="product-popup" id="bahaar-3p">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeProductPopup('bahaar-3p')">&times;</span>
+    <img src="bahaar.png" alt="Bahaar Full Set" />
+    <h2>Bahaar</h2>
+    <p class="price">Rs. 11,000</p>
+    <p>
+      Bahaar — where bloom meets thread. 🌸✨<br><br>
+      A soft purple organza dupatta, hand-painted with love and delicately adorned with pearls and floral textures.<br><br>
+      Paired with a stitched shirt & trouser in soothing tones — made to feel like a gentle spring breeze against the skin.<br><br>
+      A moment of grace, softly captured.<br><br>
+      This is Bahaar.
+    </p>
+    <p><strong>Available as full 3-piece set or dupatta-only.</strong></p>
+    <div class="review-section">
+      <label>Leave a Review:</label><br>
+      <textarea placeholder="Write your thoughts..."></textarea><br>
+      <button>Submit</button>
+      <p style="margin-top: 20px;"><a href="https://www.instagram.com/gul_e_nayyer?igsh=MnEzaXkzNmp4bTZv" target="_blank" style="color: #8d6748; font-weight: bold;">Order via Instagram DM</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP: Bahaar - Dupatta -->
+<div class="product-popup" id="bahaar-dupatta">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeProductPopup('bahaar-dupatta')">&times;</span>
+    <img src="bahaar.png" alt="Bahaar Dupatta" />
+    <h2>Bahaar - Dupatta</h2>
+    <p class="price">Rs. 4,500</p>
+    <p>
+      Bahaar’s soft purple organza dupatta, hand-painted and adorned with pearls & floral textures.<br><br>
+      Light, elegant, and timeless — a perfect match for any outfit.<br><br>
+      A graceful statement on its own.
+    </p>
+    <div class="review-section">
+      <label>Leave a Review:</label><br>
+      <textarea placeholder="Write your thoughts..."></textarea><br>
+      <button>Submit</button>
+      <p style="margin-top: 20px;"><a href="https://www.instagram.com/gul_e_nayyer?igsh=MnEzaXkzNmp4bTZv" target="_blank" style="color: #8d6748; font-weight: bold;">Order via Instagram DM</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP: Mehr - 3 Piece -->
+<div class="product-popup" id="mehr-3p">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeProductPopup('mehr-3p')">&times;</span>
+    <img src="mehr.png" alt="Mehr 3 Piece" />
+    <h2>Mehr</h2>
+    <p class="price">Rs. 8,000</p>
+    <p>
+      ✨ Mehr | The Garnet Maroon Story ✨<br><br>
+      Sometimes, it only takes one outfit to make you feel unstoppable ✨<br><br>
+      Mehr — in rich Garnet Maroon, hand-embellished pearls, crystal neckline & flowing organza dupatta.<br><br>
+      Every detail made with love, for the moments that matter 💖
+    </p>
+    <div class="review-section">
+      <label>Leave a Review:</label><br>
+      <textarea placeholder="Write your thoughts..."></textarea><br>
+      <button>Submit</button>
+      <p style="margin-top: 20px;"><a href="https://www.instagram.com/gul_e_nayyer?igsh=MnEzaXkzNmp4bTZv" target="_blank" style="color: #8d6748; font-weight: bold;">Order via Instagram DM</a></p>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
