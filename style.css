@@ -203,4 +203,41 @@ textarea {
   margin: 0;
   padding: 0;
 }
+.carousel {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.carousel-image {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+
 

@@ -70,25 +70,15 @@ function closeProductPopup(id) {
   <p class="price">Rs. 8,000</p>
   <p class="type">3-PIECE</p>
 </div>
+<!-- Slot: Chaandni - 3 Piece -->
+<div class="product-card 3piece" onclick="openProductPopup('chaandni-3p')">
+  <img src="chaandni1.png" alt="Chaandni 3 Piece" />
+  <h3>Chaandni</h3>
+  <p class="price">Price: DM on Instagram</p>
+  <p class="type">3-PIECE</p>
+</div>
 
-  
-    <!-- 30 Example Items -->
-    <script>
-      const products = [];
-      const categories = ['3piece', '2piece', 'dupatta'];
-      for (let i = 1; i <= 30; i++) {
-        const category = categories[i % 3];
-        products.push(`
-          <div class="product-card ${category}">
-            <img src="https://via.placeholder.com/300x400.png?text=Suit+${i}" alt="Product ${i}" />
-            <h3>Elegant Look ${i}</h3>
-            <p class="price">Rs. ${10000 + i * 50}</p>
-            <p class="type">${category.toUpperCase()}</p>
-          </div>
-        `);
-      }
-      document.write(products.join(''));
-    </script>
+
   </section>
 
   <footer>
@@ -189,6 +179,53 @@ function closeProductPopup(id) {
     </div>
   </div>
 </div>
+<!-- POPUP: Chaandni - 3 Piece -->
+<div class="product-popup" id="chaandni-3p">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeProductPopup('chaandni-3p')">&times;</span>
+
+    <!-- Replace this part with the carousel -->
+    <div class="carousel">
+      <button class="carousel-btn left" onclick="plusSlide('chaandni', -1)">&#10094;</button>
+      <img src="chaandni1.png" class="chaandni-slide carousel-image" style="display: block;" />
+      <img src="chaandni2.png" class="chaandni-slide carousel-image" style="display: none;" />
+      <button class="carousel-btn right" onclick="plusSlide('chaandni', 1)">&#10095;</button>
+    </div>
+
+    <h2>Chaandni</h2>
+    <p class="price">For price, please DM on Instagram</p>
+    <p>
+      Meet the softness of Chaandni — a whisper of moonlight wrapped in silk. 🌙✨<br><br>
+      Hand-embellished with crystals, sequins, and soft silver textures, this piece glows without noise — designed for elegance that lingers.<br><br>
+      Wear it as a statement double tone silk dupatta, or pair it with our custom-stitched raw silk farshi set.
+    </p>
+    <a href="https://www.instagram.com/gul_e_nayyer?igsh=MnEzaXkzNmp4bTZv" target="_blank" class="instagram-button">Order via Instagram</a>
+    <div class="review-section">
+      <label>Leave a Review:</label><br>
+      <textarea placeholder="Write your thoughts..."></textarea><br>
+      <button>Submit</button>
+    </div>
+  </div>
+</div>
+<script>
+  const currentSlideIndex = { chaandni: 0 };
+
+  function showSlide(slideKey, index) {
+    const slides = document.querySelectorAll(`.${slideKey}-slide`);
+    if (!slides.length) return;
+
+    currentSlideIndex[slideKey] = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.style.display = i === currentSlideIndex[slideKey] ? 'block' : 'none';
+    });
+  }
+
+  function plusSlide(slideKey, n) {
+    showSlide(slideKey, currentSlideIndex[slideKey] + n);
+  }
+</script>
+
 
 
 </body>
